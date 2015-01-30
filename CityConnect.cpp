@@ -159,9 +159,8 @@ string CityConnect::getDistance(string userCommand) {
 
 	if(parameters.size() < PARAM_SIZE_GET_DISTANCE) {
 		sprintf_s(buffer, MESSAGE_INVALID_FORMAT.c_str(), userCommand.c_str());
-		return buffer;
 	}
-		
+	else {	
 	string newStartLocation = parameters[PARAM_POSITION_START_LOCATION];
 	string newEndLocation = parameters[PARAM_POSITION_END_LOCATION];
 
@@ -169,12 +168,13 @@ string CityConnect::getDistance(string userCommand) {
 
 	if (position == NOT_FOUND) {
 		sprintf_s(buffer, MESSAGE_NO_ROUTE.c_str(), newStartLocation.c_str(), newEndLocation.c_str());
-		return buffer;
 	} 
 	else 
 	{
 		sprintf_s(buffer, MESSAGE_DISTANCE.c_str(), newStartLocation.c_str(), newEndLocation.c_str(), route[position][STORAGE_POSITION_DISTANCE].c_str());
-		return buffer;
+
+	}
+	return buffer;
 	}
 }
 
